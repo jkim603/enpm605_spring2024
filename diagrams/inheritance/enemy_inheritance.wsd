@@ -1,0 +1,24 @@
+@startuml
+
+class Enemy{
+    -name: str = "Enemy"
+    -health: int = 100
+    +attack(player: Player): void
+    +take_damage(damage: int): void
+}
+
+class Skeleton{
+    -shield_power: int = 5
+    +take_damage(damage: int): void
+    +terrify(player: Player): void
+}
+
+class Dragon{
+    -firebreath_power: int = 10
+    +attack(player: Player): void
+    +use_tail_whip(player: Player): void
+}
+
+class Skeleton extends Enemy
+class Dragon extends Enemy
+@enduml

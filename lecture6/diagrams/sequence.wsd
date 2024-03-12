@@ -1,0 +1,11 @@
+@startuml
+autonumber
+Player->Enemy: attack
+note left: The player attacks the enemy
+Enemy->Enemy: take_damage
+note right: The enemy takes damage
+Enemy->Player: attack
+note left: The enemy attacks the player
+Player->Player: take_damage
+note right: The player takes damage
+@enduml

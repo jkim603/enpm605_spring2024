@@ -1,0 +1,21 @@
+
+@startuml
+namespace rpg #DDDDDD {
+class Player{
+    -name: str = "Hero"
+    -health: int = 100
+    +take_damage(damage:int): None
+    +attack(enemy:Enemy): None
+    +defend(): None
+}
+
+class Enemy{
+    -name: str = "Enemy"
+    -health: int = 50
+    +attack(player:Player): None
+}
+Player - Enemy: attacks >
+Player - Enemy: defends >
+Enemy - Player: attacks >
+}
+@enduml

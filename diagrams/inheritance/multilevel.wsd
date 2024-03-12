@@ -1,0 +1,6 @@
+@startuml
+title Multilevel inheritance
+class Intermediate extends Base
+class Derived extends Intermediate
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+class Team{
+  -name: str
+  -players: [Player]
+  +add_player(player: Player): void
+}
+
+class Player{
+  -name: str
+}
+
+Team "1..*" o-- Player
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+title Single inheritance
+class Base{
+
+}
+
+class Derived{
+}
+
+Base ^-- Derived
+@enduml

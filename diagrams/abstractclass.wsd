@@ -1,0 +1,53 @@
+@startuml
+
+abstract Enemy{
+    -name: str = "Enemy"
+    -health: int = 100
+    +{abstract} attack(player: Player): void
+    +{abstract} take_damage(damage: int): void
+}
+
+class Skeleton{
+    -shield_power: int = 5
+    +attack(player: Player): void
+    +take_damage(damage: int): void
+    +terrify(player: Player): void
+}
+
+class Dragon{
+    -firebreath_power: int = 10
+    +attack(player: Player): void
+    +take_damage(damage: int): void
+    +use_tail_whip(player: Player): void
+}
+
+class Skeleton extends Enemy
+class Dragon extends Enemy
+
+note right of Enemy::attack
+    @abstractmethod
+end note
+
+note right of Enemy::take_damage
+    @abstractmethod
+end note
+
+note right of Dragon::take_damage
+    override
+end note
+
+note right of Skeleton::take_damage
+    override
+end note
+
+note left of Dragon::attack
+    override
+end note
+
+note left of Skeleton::attack
+    override
+end note
+
+
+
+@enduml

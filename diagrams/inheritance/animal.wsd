@@ -1,0 +1,24 @@
+@startuml
+
+class Animal{
+    -name: str
+    -age: int
+    +make_sound(): void
+}
+
+class Dog{
+    -breed: str
+    +make_sound(): void
+    +walk(): void
+    +fetch(): void
+}
+
+class Snake{
+    -length: int
+    +make_sound(): void
+    +slither(): void
+}
+
+class Dog extends Animal
+class Snake extends Animal
+@enduml

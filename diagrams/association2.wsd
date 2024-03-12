@@ -1,0 +1,15 @@
+@startuml
+class Student{
+  -name: str
+  -courses: [Course]
+  +enroll(course: Course): void
+}
+
+class Course{
+  -title: str
+  -students: [Student]
+  +add_student(student: Student): void
+}
+
+Student "1..*"--"1..*" Course: is enrolled in > 
+@enduml

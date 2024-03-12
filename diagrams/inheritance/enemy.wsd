@@ -1,0 +1,22 @@
+@startuml
+
+class Enemy{
+    -name: str
+    -health: int
+    +attack(player: Player): void
+    +take_damage(damage: int): void
+}
+
+class Zombie{
+    -bite_strength: int
+    +attack(player: Player): void
+}
+
+class Demon{
+    -fireball_strength: int
+    +attack(player: Player): void
+}
+
+class Zombie extends Enemy
+class Demon extends Enemy
+@enduml

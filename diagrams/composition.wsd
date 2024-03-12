@@ -1,0 +1,12 @@
+@startuml
+class Engine{
+  -horsepower: int
+}
+
+class Car{
+  -model: str
+  -engine: Engine
+}
+
+Car "1" *-- Engine
+@enduml

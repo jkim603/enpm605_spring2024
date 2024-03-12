@@ -1,0 +1,6 @@
+@startuml
+title Hierarchical inheritance
+class Derived1 extends Base
+class Derived2 extends Base
+
+@enduml

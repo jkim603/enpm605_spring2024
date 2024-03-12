@@ -1,0 +1,13 @@
+@startuml
+class Customer{
+  -name: str
+  -age: int
+}
+
+class Order{
+  -customer: Customer
+  -total: float
+}
+
+Order "1" -> "0..*" Customer : belongs to 
+@enduml

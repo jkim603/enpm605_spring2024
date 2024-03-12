@@ -1,0 +1,12 @@
+@startuml
+class Manager{
+  -name: str
+}
+
+class Department{
+  -name: str
+  -manager: Manager
+}
+
+Department "1" o-- Manager
+@enduml
