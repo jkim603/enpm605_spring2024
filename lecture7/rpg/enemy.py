@@ -1,5 +1,5 @@
 
-
+import rpg.player 
 """
 This file contains the Enemy class.
 """
@@ -14,8 +14,22 @@ class Enemy():
     """
 
     def __init__(self, name="Enemy", health=50):
-        self.name = name
-        self.health = health
+        self._name = name
+        self._health = health
+        
+    @property
+    def name(self):
+        """
+        str: The name of the enemy.
+        """
+        return self._name
+    
+    @name.setter
+    def name(self, name):
+        if isinstance(name, str):
+            self._name = name
+        else:
+            raise ValueError("The name must be a string.")
 
     def __str__(self):
         """
@@ -24,7 +38,7 @@ class Enemy():
         Returns:
             str: The string representation of the enemy.
         """
-        return f"{self.name} has {self.health} health."
+        return f"{self._name} has {self._health} health."
     
     def __repr__(self):
         """
@@ -33,9 +47,9 @@ class Enemy():
         Returns:
             str: The string representation of the enemy.
         """
-        return f"{self.name} has {self.health} health."
+        return f"{self._name} has {self._health} health."
 
-    def attack(self, player, damage):
+    def attack(self, player: rpg.player.Player, damage):
         """
         Attack the player.
 
@@ -43,7 +57,7 @@ class Enemy():
             player (Player): The player to attack.
             damage (int): The amount of damage to deal.
         """
-        print(f"🧟🗡️ {self.name} attacks {player.name}!")
+        print(f"🧟🗡️ {self._name} attacks {player.name}!")
         player.take_damage(damage)
 
     def take_damage(self, damage):
@@ -53,11 +67,11 @@ class Enemy():
         Args:
             damage (int): The amount of damage to take.
         """
-        self.health -= damage
-        if self.health <= 0:
-            print(f"🧟💀 {self.name} has been defeated!")
+        self._health -= damage
+        if self._health <= 0:
+            print(f"🧟💀 {self._name} has been defeated!")
         else:
-            print(f"🧟💜 {self.name} has {self.health} health left.")
+            print(f"🧟💜 {self._name} has {self._health} health left.")
 
 
 class Skeleton(Enemy):
@@ -93,7 +107,7 @@ class Dragon(Enemy):
         super().__init__(name=name, health=80)
         self._fire_breath_power = fire_breath_power
 
-    def attack(self, player, damage):
+    def attack(self, player: rpg.player.Player, damage):
         """
         Attack the player.
 
@@ -107,3 +121,4 @@ class Dragon(Enemy):
 if __name__ == "__main__":
     print("Creating an enemy:")
     enemy = Enemy()
+    enemy.attack(rpg.player.Player(), 10)

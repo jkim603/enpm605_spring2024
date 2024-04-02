@@ -1,7 +1,7 @@
 import sys
 import os.path
-folder = (os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-sys.path.append(folder)
+path = (os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(path)
 # Import your functions
 
 from rpg.player import Player  # noqa: E402

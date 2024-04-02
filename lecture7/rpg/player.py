@@ -106,6 +106,7 @@ class Player:
         """
         Returns the string representation of the player.
         """
+        return f"{self.name} has {self.health} health."
 
     def __iter__(self):
         """
